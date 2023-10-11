@@ -6,9 +6,6 @@ import * as C from "../styles/Sign_In/styles";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Image from "next/image";
-import Featured_Sign_In from "../assets/Sign_In/Sign_In.png";
-
 import axios from "axios";
 import { useRouter } from "next/router";
 const pathSignUp = "/assets/Sign_In/Sign_In.png"
@@ -24,7 +21,7 @@ const Error = ({ error, animateError }) => {
 
 export default function Login() {
   // importando server
-  const BaseURL = "http://localhost:5000";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000"
   // router
   const router = useRouter();
 

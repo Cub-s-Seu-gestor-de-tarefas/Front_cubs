@@ -12,7 +12,7 @@ export const Images = ({ imageId, data }) => {
     setUrl vai mudar tanto com o link quanto do upload, sendo do upload o 
     nome da imagem sendo salva no banco e no diretório `/public/upload/images/rooms`
     */
-  const BackBaseUrl = "http://localhost:5000/";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000/";
   const [urlImage, setUrlImage] = useState("");
   const [url, setUrl] = useState(data.path);
   const [viewImageContent, setViewImageContent] = useState(true);
@@ -75,7 +75,7 @@ export const Images = ({ imageId, data }) => {
       console.log(formData);
 
       axios
-        .post(BackBaseUrl + "DocumentImageUpload", formData, {
+        .post(BaseURL + "DocumentImageUpload", formData, {
           headers: {
             Authorization:
               sessionStorage.getItem("currentRoom") + " " + imageId,
@@ -85,17 +85,17 @@ export const Images = ({ imageId, data }) => {
         .then((response) => {
           console.table(response);
           setUrl((prevState) => {
-            return `${BackBaseUrl}Document/${response.data.filename}`;
+            return `${BaseURL}Document/${response.data.filename}`;
           });
           setUrlImage((prevState) => {
-            return `${BackBaseUrl}Document/${response.data.filename}`;
+            return `${BaseURL}Document/${response.data.filename}`;
           });
           setViewImage(true);
           setViewEmbedImage(false);
           socket.emit("uploadImageReflect", {
             imageId: imageId,
             currentRoom: sessionStorage.getItem("currentRoom"),
-            link: `${BackBaseUrl}Document/${response.data.filename}`,
+            link: `${BaseURL}Document/${response.data.filename}`,
           });
         });
     }

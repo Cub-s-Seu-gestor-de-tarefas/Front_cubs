@@ -2,27 +2,20 @@ import * as C from "../../styles/ModalWorkspace/styles";
 import * as M from "../SelectMembers/styles";
 
 import {
-  faAdd,
-  faTriangleExclamation,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import * as content from "../../lib/user.json";
-
-import { shade } from "polished";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "styled-components";
-import axios from "axios";
-import { write } from "fs";
-import Image from "next/image";
 import SocketContext from "../../contexts/SocketContext";
 
 type Props = {
   handleClose: () => void;
 };
 
-const pathProfile = "http://localhost:5000/userprofile/";
+const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000"
+const pathProfile = BaseURL + "/userprofile/";
 
 export const ModalWorkspace = ({ handleClose }: Props) => {
   return (
@@ -37,8 +30,6 @@ export const ModalWorkspace = ({ handleClose }: Props) => {
 // Dois Forms
 
 export const CreateDocument = ({ handleClose }: Props, props) => {
-  const BaseURL = "http://localhost:5000";
-
   const { colors } = useContext(ThemeContext);
 
   const [form, setForm] = useState(true);

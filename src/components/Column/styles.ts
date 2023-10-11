@@ -3,8 +3,6 @@ import { darken } from 'polished';
 
 // Area dos cards -- colunas
 export const Columns = styled.div<{color:string}>`
-    width: 400px;
-
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -15,7 +13,7 @@ export const Columns = styled.div<{color:string}>`
 `
 
 export const HeaderColumns = styled.div<{color:string}>`
-    width: 300px;
+    width: 280px;
     
     .header--column {
         width: 100%;
@@ -25,7 +23,7 @@ export const HeaderColumns = styled.div<{color:string}>`
         border-radius: 5px;
         margin: 5px 0;
         background: ${props=>props.color};
-        padding: 5px 10px;
+        padding: 5px;
         color: var(--light);
     }
 
@@ -36,7 +34,7 @@ export const HeaderColumns = styled.div<{color:string}>`
     }
 
     .header--column input {
-        width: 90%;
+        width: 100%;
         outline: none;
         padding: 5px 10px;
         border: none;
@@ -100,23 +98,9 @@ export const TaskContent = styled.div``
 export const OptionsTasks = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
+
     margin-top: 20px;
-
-    .owner-task {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-
-    .owner-task img {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-    }
-
-    .owner-task img:not(:last-child) {
-        margin-left: -10px;
-    }
 
     .options--tasks {
         display: flex;

@@ -5,8 +5,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGripVertical } from "@fortawesome/free-solid-svg-icons";
-
-import { title } from "process";
 import SocketContext from "../../contexts/SocketContext";
 
 const Column = dynamic(() => import("../Column"), { ssr: false });
@@ -115,7 +113,7 @@ export const KanbanBoard = ({ data, kanbanId }) => {
       const taskid = dataObject.tasks.length;
       const task = {
         id: taskid,
-        content: "Nova Tarefa!!! 😉",
+        content: "Nova Tarefa ✅",
       };
       setDataObject((prevState) => {
         const newTasksArray = [];

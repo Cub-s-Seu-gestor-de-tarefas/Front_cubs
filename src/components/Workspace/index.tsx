@@ -4,7 +4,6 @@ import * as M from "../../styles/ModalWorkspace/styles";
 import { faAdd, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { io } from "socket.io-client";
 import { shade } from "polished";
 
 import { 
@@ -14,8 +13,6 @@ import {
   useRef } from "react";
 
 import { ThemeContext } from "styled-components";
-
-import workspace from "../../lib/workspace.json";
 
 import { ModalWorkspace } from "../ModalWorkspace";
 import axios from "axios";

@@ -13,10 +13,11 @@ export const KanbanBoard = styled.div`
 `
 
 export const HeaderKanban = styled.div<{optionsKanban:boolean}>`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 20px 0;
 
     input {
         outline: none;

@@ -54,10 +54,10 @@ export const HeaderDocument = styled.div<{addMember:boolean}>`
         border: none;
         outline: none;
         font-size: 3rem;
-        font-weight: 600;
+        font-weight: 700;
         color: ${props => props.theme.colors.text};
         margin-bottom: 10px;
-        width: 90%;
+        width: 100%;
     }
 
     .members img {

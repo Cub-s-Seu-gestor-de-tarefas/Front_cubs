@@ -5,13 +5,11 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Router } from "next/router";
-import { isDragActive } from "framer-motion";
 
 const Column = ({ column, tasks, liftinFunctions}) => {
 
-  const pathProfile = "http://localhost:5000/userprofile";
+  const BaseURL = process.env.HOST_CLIENTSERVER || 'http://localhost:5000';
+  const pathProfile = BaseURL + "/userprofile";
 
   const router = useRouter();
 
@@ -32,10 +30,10 @@ const Column = ({ column, tasks, liftinFunctions}) => {
 
   const [updateTask, setUpdateTask] = useState(false);
   
-  const [statusTasks, setStatusTasks] = useState(false);
-  const handleChangeStatusTask = () => {
-    setStatusTasks(!statusTasks); // muda o status da task no kanban
-  }
+  // const [statusTasks, setStatusTasks] = useState(false);
+  // const handleChangeStatusTask = () => {
+  //   setStatusTasks(!statusTasks); // muda o status da task no kanban
+  // }
 
   const [columnTitle, setColumnTitle] = useState(column.title);
   const [selectOptions, setSelectOptions] = useState(false);
@@ -72,23 +70,6 @@ const Column = ({ column, tasks, liftinFunctions}) => {
   const handleColorPurple = () => {
     setColumnColor("#8c3ecc");
   }
-
-  const [drag, isDragging] = useState(false)
-
-  const ownerTask = [
-    {
-      id:1,
-      icon:pathProfile.concat("/coruja.png")
-    },
-    {
-      id:2,
-      icon:pathProfile.concat("/leao.png")
-    },
-    {
-      id:3,
-      icon:pathProfile.concat("/aguia.png")
-    }
-  ]
 
   return (
     <>
@@ -229,10 +210,6 @@ const Column = ({ column, tasks, liftinFunctions}) => {
                           </C.TaskContent>
 
                             <C.OptionsTasks>
-                              <div className="owner-task">
-                                {ownerTask.map(key => <img src={key.icon} />)}
-                              </div>
-
                               <div className="options--tasks">
                                 <span onClick={() => {
                                   setUpdateTask(true); // editar nome da task(apenas abre)

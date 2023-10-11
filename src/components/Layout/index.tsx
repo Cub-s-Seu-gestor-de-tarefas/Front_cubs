@@ -1,29 +1,18 @@
 import { 
     useState, 
-    useEffect, 
-    createContext,
-    useContext
+    useEffect
 } from "react";
 
 import * as C from "./styles"
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 import light from '../../styles/themes/light';
 import dark from '../../styles/themes/dark';
 import GlobalStyle from '../../styles/global';
-import { io } from "socket.io-client";
 // Components
 import { Sidebar } from "../../components/Sidebar"; // Menu
 import { useRouter } from "next/router";
 
-
-import { 
-    DragDropContext,
-    Droppable,
-    Draggable
-  } from 'react-beautiful-dnd';
-import { faAngleDoubleRight, faAnglesLeft, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Chat } from "../Chat/Content";
 
 type Props = {

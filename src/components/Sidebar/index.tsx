@@ -1,22 +1,10 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 
 import * as C from "./styles";
-import Swicth from "react-switch";
-
 import { ThemeContext } from "styled-components";
 
-import { shade } from "polished";
-
 import {
-  faArrowRightFromBracket,
-  faPlus,
-  faGear,
-  faMoon,
-  faSun,
   faBars,
-  faAnglesLeft,
-  faCalendar,
-  faSquarePlus,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,13 +15,6 @@ import { useState } from "react";
 import SocketContext from "../../contexts/SocketContext";
 
 const Logo_Cubs = "/assets/Icons-Cubs/CubsLogo.png";
-
-const SunIcon = "/assets/Icons-Cubs/lightTheme-icon.svg";
-const MoonIcon = "/assets/Icons-Cubs/darkTheme-icon.svg";
-
-const WorkspaceIcon = "/assets/Icons-Cubs/workspace-icon.svg";
-const CalendarIcon = "/assets/Icons-Cubs/calendar-icon.svg";
-const LogoutIcon = "/assets/Icons-Cubs/logout-icon.svg";
 
 type Props = {
   toggleTheme(): void;
@@ -59,7 +40,7 @@ export const Sidebar: React.FC<Props> = ({
   const [logout, setLogout] = useState(false);
 
   // const [mobileMenu, setMobileMenu] = useState(false);
-  const BackBaseUrl = "http://localhost:5000";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000";
   const [profile, setProfile] = useState(
     "https://www.shareicon.net/data/128x128/2016/08/05/806962_user_512x512.png"
   );
@@ -83,10 +64,9 @@ export const Sidebar: React.FC<Props> = ({
         sessionStorage.setItem("emailProfile", email);
         sessionStorage.setItem("iconProfile", icon);
         sessionStorage.setItem("profileWasCreated_at",created_at)
-        const pathProfile = "/profile_animalimgs/";
         setProfile((prevState) => {
        
-            return `${BackBaseUrl}/userprofile/${icon}`;
+            return `${BaseURL}/userprofile/${icon}`;
         
         });
         let xName = name.split(" ");

@@ -11,8 +11,7 @@ import FormData from "form-data";
 export const Profile = () => {
   const socket = useContext(SocketContext);
   const router = useRouter();
-  const BackBaseUrl = "http://localhost:5000";
-  const pathProfile = BackBaseUrl +"userprofile/";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000";
   const [profile, setProfile] = useState("");
   const [nameUser, setNameUser] = useState("");
   const [emailUser, setEmailUser] = useState("");
@@ -31,7 +30,7 @@ export const Profile = () => {
         sessionStorage.setItem("emailProfile", email);
         sessionStorage.setItem("iconProfile", icon);
         setProfile((prevState) => {
-          return `${BackBaseUrl}/userprofile/${icon}`;
+          return `${BaseURL}/userprofile/${icon}`;
         });
         let xName = name.split(" ");
         let firstName = xName[0];
@@ -98,7 +97,7 @@ export const Profile = () => {
           formData.append("file", fileImg[0]);
           console.log(formData);
           axios
-            .post("http://localhost:5000/ProfileImageUpload", formData, {
+            .post(BaseURL + "/ProfileImageUpload", formData, {
               headers: {
                 Authorization: "Bearer " + token,
                 "Content-Type": "multipart/form-data",
@@ -108,7 +107,7 @@ export const Profile = () => {
               
                 sessionStorage.setItem("iconProfile", response.data.filename)
                 setProfile((prevState) => {
-                  return `${BackBaseUrl}/userprofile/${response.data.filename}`;
+                  return `${BaseURL}/userprofile/${response.data.filename}`;
                 });
             });
         }
@@ -124,7 +123,7 @@ export const Profile = () => {
       (resp) => {
         sessionStorage.setItem("iconProfile", resp);
         setProfile((prevState) => {
-          return `${BackBaseUrl}/userprofile/${resp}`;
+          return `${BaseURL}/userprofile/${resp}`;
         });
       }
     );
@@ -213,7 +212,8 @@ export const Profile = () => {
                 {bixos.map((img) => {
                   return (
                     <img
-                      src={pathProfile.concat(img + ".png")}
+                      // src={pathProfile.concat(img + ".png")}
+                      src={`${BaseURL}/userprofile/${img}.png`}
                       onClick={() => {
                         changeBichos(img + ".png");
                       }}
