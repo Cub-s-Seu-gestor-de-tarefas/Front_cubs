@@ -16,8 +16,9 @@ import { CheckList } from "../CheckList";
 
 export const Document = () => {
   // const [loading, setLoading] = useState(false)
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
 
-  const pathProfile = "http://localhost:5000/userprofile";
+  const pathProfile = BaseURL + "/userprofile";
   // const imageIcon = "image-solid.svg";
 
   const socket = useContext(SocketContext);
@@ -357,7 +358,7 @@ export const Document = () => {
                             }}
                           >
                             <img
-                              src={"http://localhost:5000/userprofile/" + d.img}
+                              src={pathProfile + d.img}
                             />
                             {d.email}
                           </span>

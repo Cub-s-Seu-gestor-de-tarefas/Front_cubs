@@ -52,7 +52,7 @@ export const Container = styled.div`
         padding: 5px 10px;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 900;
         font-family: monospace;
         background-color: transparent;
@@ -65,7 +65,7 @@ export const Container = styled.div`
     }
 
     .tools button:not(:first-child) {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .italic {
@@ -74,5 +74,12 @@ export const Container = styled.div`
 
     .code {
         border: none !important;
+    }
+
+    @media (max-width: 768px) {
+        .text-editor {
+            font-size: 1rem;
+            line-height: 165%;
+        }
     }
 `

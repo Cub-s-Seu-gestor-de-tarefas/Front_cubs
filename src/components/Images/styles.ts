@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Image = styled.div<{viewImage:boolean}>`
     display: ${props=>props.viewImage ? "initial" : "none"};
     position: relative;
+    
     .image-container {
         margin: 20px 0;
         min-width: 560px;
@@ -31,6 +32,7 @@ export const Image = styled.div<{viewImage:boolean}>`
         background-color: var(--transparent-black);
         padding: 5px;
     }
+
     .options--image span {}
     .options--image span .bi {
         width: 20px;
@@ -45,7 +47,18 @@ export const Image = styled.div<{viewImage:boolean}>`
             opacity: 1;
         }
     }
-    
+
+    @media (max-width: 600px) {
+        width: 100% !important;
+
+        .image-container {
+            min-width: 100%;
+            min-height: 100% !important;
+            max-width: 100%;
+            max-height: 200px !important;
+            /* background: red !important; */
+        }
+    }
 `
 
 export const Container = styled.div<{fromLink:boolean, viewImageContent:boolean, view:boolean}>`
@@ -125,7 +138,22 @@ export const Container = styled.div<{fromLink:boolean, viewImageContent:boolean,
     }
 
     .upload input {}
+
+    @media (max-width: 600px) {
+        width: 100% !important;
+        margin-bottom: 0px;
+    }
 `
 
 
-export const ContainerEmbedImage = styled.div``
+export const ContainerEmbedImage = styled.div`
+    @media (max-width: 600px) {
+        width: 100%;
+        /* background-color: red;
+        overflow: scroll */
+
+        .options {
+            margin-bottom: 10px;
+        }
+    }
+`

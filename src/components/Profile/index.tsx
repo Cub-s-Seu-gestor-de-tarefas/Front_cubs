@@ -11,7 +11,7 @@ import FormData from "form-data";
 export const Profile = () => {
   const socket = useContext(SocketContext);
   const router = useRouter();
-  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
   const [profile, setProfile] = useState("");
   const [nameUser, setNameUser] = useState("");
   const [emailUser, setEmailUser] = useState("");

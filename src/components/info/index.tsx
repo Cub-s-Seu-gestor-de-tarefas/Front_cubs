@@ -4,7 +4,7 @@ import * as C from "./styles";
 import parse from "react-html-parser"
 
 export const TaskInfo = () => {
-  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
   const pathProfile = BaseURL + "/userprofile";
 
   const router = useRouter();

@@ -127,6 +127,10 @@ export const HeaderDocument = styled.div<{addMember:boolean}>`
     @media (max-width: 520px) {
         width: 100%;
 
+        .title input {
+            font-size: 2.3rem;
+        }
+
         .options-room {
             background: tomato;
         }

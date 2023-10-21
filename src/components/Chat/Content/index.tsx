@@ -24,7 +24,7 @@ interface Props {
   setEdit(): void;
 }
 
-const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:5000";
+const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
 const pathProfile = BaseURL + "/userprofile/";
 
 const CommunicateList = ({data, edit, setEdit}:Props) => {
