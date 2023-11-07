@@ -34,7 +34,7 @@ export const Container = styled.div`
     .text-editor span {
         background: ${props=>shade(0, props.theme.colors.primary)};
         color: ${props=>shade(0, props.theme.colors.textEditable)};
-        padding: 10px 5px;
+        padding: 5px 10px;
         border-radius: 10px;
         font-family: monospace;
     }
@@ -72,8 +72,10 @@ export const Container = styled.div`
         font-style: italic;
     }
 
-    .code {
+    .code, pre {
         border: none !important;
+        background: ${props=> props.theme.colors.contrast};
+        color: ${props=>props.theme.colors.text};
     }
 
     @media (max-width: 768px) {

@@ -116,11 +116,11 @@ const socket = useContext(SocketContext);
             <button className="italic" onClick={setToItalic}>
               I
             </button>
-            {/*
+            
               <button className="code" onClick={setToBlockCode}>
                 &lt;/&gt;
               </button>
-            */}
+           
           </div>
     </C.Container>
   )

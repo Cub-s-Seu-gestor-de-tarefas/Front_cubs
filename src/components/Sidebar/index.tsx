@@ -40,7 +40,7 @@ export const Sidebar: React.FC<Props> = ({
   const [logout, setLogout] = useState(false);
 
   // const [mobileMenu, setMobileMenu] = useState(false);
-  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://ec2-3-17-183-122.us-east-2.compute.amazonaws.com:5000";
   const [profile, setProfile] = useState(
     "https://www.shareicon.net/data/128x128/2016/08/05/806962_user_512x512.png"
   );

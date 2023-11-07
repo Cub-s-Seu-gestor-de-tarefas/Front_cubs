@@ -19,7 +19,7 @@ const Error = ({ error, animateError }) => {
 
 export default function Cadastrar() {
   // importando server
-  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://ec2-3-17-183-122.us-east-2.compute.amazonaws.com:5000";
   // router
   const router = useRouter();
 

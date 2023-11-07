@@ -12,7 +12,7 @@ export const Images = ({ imageId, data }) => {
     setUrl vai mudar tanto com o link quanto do upload, sendo do upload o 
     nome da imagem sendo salva no banco e no diretório `/public/upload/images/rooms`
     */
-  const BaseURL = process.env.HOST_CLIENTSERVER || "http://localhost:3001";
+  const BaseURL = process.env.HOST_CLIENTSERVER || "http://ec2-3-17-183-122.us-east-2.compute.amazonaws.com:5000";
   const [urlImage, setUrlImage] = useState("");
   const [url, setUrl] = useState(data.path);
   const [viewImageContent, setViewImageContent] = useState(true);
